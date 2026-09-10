@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FE DAIRY 2 · Premium Warehouse for Lease</title>
+  <title>Premium Warehouse for Lease</title>
   <style>
     * {
       margin: 0;
@@ -235,38 +235,14 @@
       border-color: #fbbf24;
     }
 
-    /* footer / qr hint */
-    .footer-note {
-      background: #f1f5f9;
-      border-radius: 24px;
-      padding: 24px 28px;
-      margin-top: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      border: 1px dashed #cbd5e1;
-    }
-
-    .footer-note p {
-      font-size: 1rem;
-      color: #334155;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .footer-note .qr-symbol {
-      font-size: 2.6rem;
-      line-height: 1;
-    }
-
-    .footer-note small {
+    /* simple contact line (footer) */
+    .footer-contact {
+      text-align: center;
+      margin-top: 28px;
       color: #64748b;
-      font-size: 0.85rem;
-      margin-top: 6px;
-      display: block;
+      font-size: 0.9rem;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 20px;
     }
 
     /* Responsive */
@@ -278,13 +254,6 @@
       .spec-item { flex-direction: column; align-items: flex-start; gap: 6px; }
       .spec-value { white-space: normal; }
       .btn { width: 100%; justify-content: center; }
-      .footer-note { flex-direction: column; align-items: flex-start; }
-    }
-
-    /* emoji / icon fallback */
-    .emoji-icon {
-      font-style: normal;
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.05));
     }
   </style>
 </head>
@@ -293,7 +262,7 @@
     <!-- HERO -->
     <div class="hero">
       <h1>
-        🏭 FE DAIRY 2 · Premium Warehouse
+        🏭 Premium Warehouse
         <span>FOR LEASE</span>
       </h1>
       <div class="badge-container">
@@ -305,7 +274,7 @@
 
       <!-- BUTTONS: WhatsApp & Google Maps -->
       <div class="action-buttons">
-        <a href="https://wa.me/971555646140?text=Hello%2C%20I%20am%20interested%20in%20the%20FE%20DAIRY%202%20warehouse%20for%20lease%20(22%2C500%20sq.ft%20plot).%20Please%20share%20more%20details." 
+        <a href="https://wa.me/971555646140?text=Hello%2C%20I%20am%20interested%20in%20the%20premium%20warehouse%20for%20lease%20(22%2C500%20sq.ft%20plot).%20Please%20share%20more%20details." 
            target="_blank" 
            rel="noopener noreferrer" 
            class="btn btn-whatsapp">
@@ -382,38 +351,33 @@
 
       <!-- GALLERY -->
       <div class="section-title">
-        <i>📸</i> Gallery · FE DAIRY 2
+        <i>📸</i> Gallery
       </div>
 
       <div class="gallery-grid">
-        <img src="PHOTO_2.JPEG" alt="Warehouse view 2 – FE DAIRY 2" loading="lazy">
-        <img src="PHOTO_3.JPEG" alt="Warehouse view 3 – FE DAIRY 2" loading="lazy">
-        <img src="PHOTO_4.JPEG" alt="Warehouse view 4 – FE DAIRY 2" loading="lazy">
-        <img src="PHOTO_5.JPEG" alt="Warehouse view 5 – FE DAIRY 2" loading="lazy">
-        <img src="PHOTO_6.JPEG" alt="Warehouse view 6 – FE DAIRY 2" loading="lazy">
-        <img src="PHOTO_7.JPEG" alt="Warehouse view 7 – FE DAIRY 2" loading="lazy">
-        <img src="PHOTO_8.JPEG" alt="Warehouse view 8 – FE DAIRY 2" loading="lazy">
-        <img src="PHOTO_9.JPEG" alt="Warehouse view 9 – FE DAIRY 2" loading="lazy">
+        <img src="PHOTO_2.JPEG" alt="Warehouse view 2" loading="lazy">
+        <img src="PHOTO_3.JPEG" alt="Warehouse view 3" loading="lazy">
+        <img src="PHOTO_4.JPEG" alt="Warehouse view 4" loading="lazy">
+        <img src="PHOTO_5.JPEG" alt="Warehouse view 5" loading="lazy">
+        <img src="PHOTO_6.JPEG" alt="Warehouse view 6" loading="lazy">
+        <img src="PHOTO_7.JPEG" alt="Warehouse view 7" loading="lazy">
+        <img src="PHOTO_8.JPEG" alt="Warehouse view 8" loading="lazy">
+        <img src="PHOTO_9.JPEG" alt="Warehouse view 9" loading="lazy">
       </div>
 
-      <!-- QR / PRINT NOTE (for sticker) -->
-      <div class="footer-note">
-        <div>
-          <p>
-            <span class="qr-symbol">📲</span> 
-            <strong>Scan or share this page</strong> — perfect for QR code stickers & WhatsApp.
-          </p>
-          <small>Include this link in a QR code — all specs & photos ready to view.</small>
-        </div>
-        <div style="display: flex; gap: 10px;">
-          <a href="https://wa.me/971555646140" target="_blank" style="text-decoration: none; font-size: 1.8rem;">💬</a>
-          <a href="https://maps.app.goo.gl/HumFYQmsxUybZHtE7" target="_blank" style="text-decoration: none; font-size: 1.8rem;">🗺️</a>
-        </div>
+      <!-- REPLACED: Click to chat on WhatsApp (large, clean) -->
+      <div style="text-align: center; margin: 36px 0 12px;">
+        <a href="https://wa.me/971555646140?text=Hello%2C%20I%20am%20interested%20in%20the%20premium%20warehouse%20for%20lease%20(22%2C500%20sq.ft%20plot).%20Please%20share%20more%20details." 
+           target="_blank" 
+           rel="noopener noreferrer"
+           style="display: inline-flex; align-items: center; justify-content: center; gap: 14px; background: #25D366; color: #0a1e2d; font-weight: 700; font-size: 1.35rem; padding: 18px 48px; border-radius: 80px; text-decoration: none; box-shadow: 0 12px 18px -10px #25D366; transition: 0.2s;">
+          <span style="font-size: 2rem;">💬</span> Click to Chat on WhatsApp
+        </a>
       </div>
 
       <!-- subtle contact line -->
-      <div style="text-align: center; margin-top: 28px; color: #64748b; font-size: 0.9rem; border-top: 1px solid #e2e8f0; padding-top: 20px;">
-        <span>📞 +971 55 564 6140 &nbsp;|&nbsp; 📧 FE DAIRY 2 · Warehouse leasing</span>
+      <div class="footer-contact">
+        <span>📞 +971 55 564 6140 &nbsp;|&nbsp; 📧 Warehouse leasing enquiry</span>
       </div>
     </div> <!-- /content -->
   </div> <!-- /card -->
