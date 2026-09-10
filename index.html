@@ -1,34 +1,421 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Warehouse for Lease</title>
-<style>
-body{font-family:Arial,sans-serif;max-width:1200px;margin:auto;padding:20px}
-h1{text-align:center}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}
-img{width:100%;height:250px;object-fit:cover;border-radius:8px}
-table{width:100%;border-collapse:collapse}
-td,th{border:1px solid #ccc;padding:8px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FE DAIRY 2 · Premium Warehouse for Lease</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f5f7fb;
+      color: #1e293b;
+      line-height: 1.5;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .card {
+      max-width: 1200px;
+      width: 100%;
+      background: white;
+      border-radius: 36px 36px 28px 28px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* header / hero */
+    .hero {
+      background: linear-gradient(135deg, #0f2b4b 0%, #1a3e5e 100%);
+      padding: 32px 32px 28px;
+      color: white;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero h1 span {
+      background: #fbbf24;
+      color: #0f2b4b;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* buttons */
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      letter-spacing: 0.2px;
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: #0a1e2d;
+    }
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -10px #25D366;
+    }
+
+    .btn-map {
+      background: #ffffff;
+      color: #0f2b4b;
+      border: 1px solid #e2e8f0;
+    }
+    .btn-map:hover {
+      background: #f8fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -10px #94a3b8;
+    }
+
+    .btn i {
+      font-style: normal;
+      font-size: 1.3rem;
+    }
+
+    /* main content */
+    .content {
+      padding: 32px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #0f2b4b;
+      border-left: 6px solid #fbbf24;
+      padding-left: 18px;
+    }
+
+    .section-title i {
+      font-style: normal;
+      font-size: 1.8rem;
+    }
+
+    /* spec grid */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .spec-item {
+      background: #f8fafc;
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid #eef2f6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.1s;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .spec-item:hover {
+      background: #ffffff;
+      border-color: #d9e2ec;
+      box-shadow: 0 8px 16px -12px #0f2b4b;
+    }
+
+    .spec-label {
+      font-weight: 500;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.98rem;
+    }
+
+    .spec-label i {
+      font-style: normal;
+      font-size: 1.3rem;
+      width: 24px;
+      text-align: center;
+    }
+
+    .spec-value {
+      font-weight: 700;
+      color: #0f2b4b;
+      font-size: 1.1rem;
+      background: #e9eef3;
+      padding: 4px 12px;
+      border-radius: 40px;
+      white-space: nowrap;
+    }
+
+    /* gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: all 0.25s ease;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e2e8f0;
+      background: #f1f5f9;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 24px -12px #0f2b4b;
+      border-color: #fbbf24;
+    }
+
+    /* footer / qr hint */
+    .footer-note {
+      background: #f1f5f9;
+      border-radius: 24px;
+      padding: 24px 28px;
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border: 1px dashed #cbd5e1;
+    }
+
+    .footer-note p {
+      font-size: 1rem;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-note .qr-symbol {
+      font-size: 2.6rem;
+      line-height: 1;
+    }
+
+    .footer-note small {
+      color: #64748b;
+      font-size: 0.85rem;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      body { padding: 12px; }
+      .hero { padding: 24px 20px; }
+      .hero h1 { font-size: 1.7rem; }
+      .content { padding: 22px 20px; }
+      .spec-item { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .spec-value { white-space: normal; }
+      .btn { width: 100%; justify-content: center; }
+      .footer-note { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* emoji / icon fallback */
+    .emoji-icon {
+      font-style: normal;
+      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.05));
+    }
+  </style>
 </head>
 <body>
-<h1>Premium Warehouse Available</h1>
-<table>
-<tr><th>Specification</th><th>Details</th></tr>
-<tr><td>Total Plot Area</td><td>22,500.52 SQ.FT</td></tr>
-<tr><td>Total Built-up Area</td><td>17,745.69 SQ.FT</td></tr>
-<tr><td>Ground Floor Warehouse</td><td>13,175.24 SQ.FT</td></tr>
-<tr><td>Office Area (Mezzanine)</td><td>1,212.44 SQ.FT</td></tr>
-<tr><td>Storage Area (Mezzanine)</td><td>2,397.44 SQ.FT</td></tr>
-<tr><td>Total Mezzanine Area</td><td>3,796.31 SQ.FT</td></tr>
-<tr><td>Parking Spaces</td><td>2</td></tr>
-<tr><td>Clear Height</td><td>13.50 m</td></tr>
-<tr><td>Landing Gate Height</td><td>3 m</td></tr>
-<tr><td>Power Load</td><td>140 KW</td></tr>
-</table>
-<h2>Gallery</h2>
-<div class="grid">
-<img src="PHOTO_2.JPEG" alt="PHOTO_2.JPEG"><img src="PHOTO_3.JPEG" alt="PHOTO_3.JPEG"><img src="PHOTO_4.JPEG" alt="PHOTO_4.JPEG"><img src="PHOTO_5.JPEG" alt="PHOTO_5.JPEG"><img src="PHOTO_6.JPEG" alt="PHOTO_6.JPEG"><img src="PHOTO_7.JPEG" alt="PHOTO_7.JPEG"><img src="PHOTO_8.JPEG" alt="PHOTO_8.JPEG"><img src="PHOTO_9.JPEG" alt="PHOTO_9.JPEG"></div></body></html>
+  <div class="card">
+    <!-- HERO -->
+    <div class="hero">
+      <h1>
+        🏭 FE DAIRY 2 · Premium Warehouse
+        <span>FOR LEASE</span>
+      </h1>
+      <div class="badge-container">
+        <div class="badge">📍 Prime location · Dubai</div>
+        <div class="badge">⚡ 140 KW power</div>
+        <div class="badge">📐 13.5 m clear height</div>
+        <div class="badge">🚛 2 parking spaces</div>
+      </div>
+
+      <!-- BUTTONS: WhatsApp & Google Maps -->
+      <div class="action-buttons">
+        <a href="https://wa.me/971555646140?text=Hello%2C%20I%20am%20interested%20in%20the%20FE%20DAIRY%202%20warehouse%20for%20lease%20(22%2C500%20sq.ft%20plot).%20Please%20share%20more%20details." 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-whatsapp">
+          <i>💬</i> Chat on WhatsApp
+        </a>
+        <a href="https://maps.app.goo.gl/HumFYQmsxUybZHtE7" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-map">
+          <i>🗺️</i> Open in Google Maps
+        </a>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+      <!-- SPECIFICATIONS TABLE (elegant grid) -->
+      <div class="section-title">
+        <i>📋</i> Warehouse specifications
+      </div>
+
+      <div class="spec-grid">
+        <!-- 1 -->
+        <div class="spec-item">
+          <span class="spec-label"><i>📐</i> Total Plot Area</span>
+          <span class="spec-value">22,500.52 SQ.FT</span>
+        </div>
+        <!-- 2 -->
+        <div class="spec-item">
+          <span class="spec-label"><i>🏗️</i> Total Built-up Area</span>
+          <span class="spec-value">17,745.69 SQ.FT</span>
+        </div>
+        <!-- 3 -->
+        <div class="spec-item">
+          <span class="spec-label"><i>🏭</i> Ground Floor (Warehouse)</span>
+          <span class="spec-value">13,175.24 SQ.FT</span>
+        </div>
+        <!-- 4 -->
+        <div class="spec-item">
+          <span class="spec-label"><i>📁</i> Office Area (Mezzanine)</span>
+          <span class="spec-value">1,212.44 SQ.FT</span>
+        </div>
+        <!-- 5 -->
+        <div class="spec-item">
+          <span class="spec-label"><i>📦</i> Storage Area (Mezzanine)</span>
+          <span class="spec-value">2,397.44 SQ.FT</span>
+        </div>
+        <!-- 6 -->
+        <div class="spec-item">
+          <span class="spec-label"><i>🧮</i> Total Mezzanine Area</span>
+          <span class="spec-value">3,796.31 SQ.FT</span>
+        </div>
+        <!-- 7 -->
+        <div class="spec-item">
+          <span class="spec-label"><i>🚗</i> Car Parking Spaces</span>
+          <span class="spec-value">2</span>
+        </div>
+        <!-- 8 -->
+        <div class="spec-item">
+          <span class="spec-label"><i>⬆️</i> Clear Height</span>
+          <span class="spec-value">13.50 m</span>
+        </div>
+        <!-- 9 -->
+        <div class="spec-item">
+          <span class="spec-label"><i>🚪</i> Landing Gate Height</span>
+          <span class="spec-value">3 m</span>
+        </div>
+        <!-- 10 -->
+        <div class="spec-item">
+          <span class="spec-label"><i>🔌</i> Electric Power Load</span>
+          <span class="spec-value">140 KW</span>
+        </div>
+      </div>
+
+      <!-- GALLERY -->
+      <div class="section-title">
+        <i>📸</i> Gallery · FE DAIRY 2
+      </div>
+
+      <div class="gallery-grid">
+        <img src="PHOTO_2.JPEG" alt="Warehouse view 2 – FE DAIRY 2" loading="lazy">
+        <img src="PHOTO_3.JPEG" alt="Warehouse view 3 – FE DAIRY 2" loading="lazy">
+        <img src="PHOTO_4.JPEG" alt="Warehouse view 4 – FE DAIRY 2" loading="lazy">
+        <img src="PHOTO_5.JPEG" alt="Warehouse view 5 – FE DAIRY 2" loading="lazy">
+        <img src="PHOTO_6.JPEG" alt="Warehouse view 6 – FE DAIRY 2" loading="lazy">
+        <img src="PHOTO_7.JPEG" alt="Warehouse view 7 – FE DAIRY 2" loading="lazy">
+        <img src="PHOTO_8.JPEG" alt="Warehouse view 8 – FE DAIRY 2" loading="lazy">
+        <img src="PHOTO_9.JPEG" alt="Warehouse view 9 – FE DAIRY 2" loading="lazy">
+      </div>
+
+      <!-- QR / PRINT NOTE (for sticker) -->
+      <div class="footer-note">
+        <div>
+          <p>
+            <span class="qr-symbol">📲</span> 
+            <strong>Scan or share this page</strong> — perfect for QR code stickers & WhatsApp.
+          </p>
+          <small>Include this link in a QR code — all specs & photos ready to view.</small>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <a href="https://wa.me/971555646140" target="_blank" style="text-decoration: none; font-size: 1.8rem;">💬</a>
+          <a href="https://maps.app.goo.gl/HumFYQmsxUybZHtE7" target="_blank" style="text-decoration: none; font-size: 1.8rem;">🗺️</a>
+        </div>
+      </div>
+
+      <!-- subtle contact line -->
+      <div style="text-align: center; margin-top: 28px; color: #64748b; font-size: 0.9rem; border-top: 1px solid #e2e8f0; padding-top: 20px;">
+        <span>📞 +971 55 564 6140 &nbsp;|&nbsp; 📧 FE DAIRY 2 · Warehouse leasing</span>
+      </div>
+    </div> <!-- /content -->
+  </div> <!-- /card -->
+</body>
+</html>
