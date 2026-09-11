@@ -84,6 +84,20 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
+    .badge-ready {
+      background: #fbbf24;
+      color: #0f2b4b;
+      font-weight: 700;
+      border: none;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(251, 191, 36, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }
+    }
+
     /* buttons */
     .action-buttons {
       display: flex;
@@ -210,6 +224,78 @@
       white-space: nowrap;
     }
 
+    /* key features grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .feature-card {
+      background: #f8fafc;
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+      border: 1px solid #eef2f6;
+      transition: all 0.2s ease;
+    }
+
+    .feature-card:hover {
+      background: #ffffff;
+      border-color: #fbbf24;
+      box-shadow: 0 12px 24px -16px #0f2b4b;
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      font-size: 2.6rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .feature-title {
+      font-weight: 700;
+      color: #0f2b4b;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .feature-desc {
+      font-size: 0.88rem;
+      color: #64748b;
+      line-height: 1.4;
+    }
+
+    /* suitable for tags */
+    .tags-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .tag {
+      background: #0f2b4b;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      border: 2px solid #0f2b4b;
+    }
+
+    .tag:hover {
+      background: #fbbf24;
+      color: #0f2b4b;
+      border-color: #fbbf24;
+      transform: translateY(-2px);
+    }
+
     /* gallery */
     .gallery-grid {
       display: grid;
@@ -266,10 +352,10 @@
         <span>FOR LEASE</span>
       </h1>
       <div class="badge-container">
+        <div class="badge badge-ready">✅ Ready for Immediate Use</div>
         <div class="badge">📍 Prime location · Dubai</div>
         <div class="badge">⚡ 140 KW power</div>
         <div class="badge">📐 13.5 m clear height</div>
-        <div class="badge">🚛 2 parking spaces</div>
       </div>
 
       <!-- BUTTONS: WhatsApp & Google Maps -->
@@ -349,6 +435,57 @@
         </div>
       </div>
 
+      <!-- KEY FEATURES -->
+      <div class="section-title">
+        <i>⭐</i> Key Features
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🎥</span>
+          <div class="feature-title">18 CCTV Cameras</div>
+          <div class="feature-desc">Full security coverage around the clock</div>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🧯</span>
+          <div class="feature-title">Fire Safety System</div>
+          <div class="feature-desc">Installed & compliant fire protection</div>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🌬️</span>
+          <div class="feature-title">Ventilation</div>
+          <div class="feature-desc">Proper airflow throughout the facility</div>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🧹</span>
+          <div class="feature-title">Well-Maintained</div>
+          <div class="feature-desc">Clean & professionally kept facility</div>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🛣️</span>
+          <div class="feature-title">Highway Access</div>
+          <div class="feature-desc">Easy loading & unloading access</div>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🏗️</span>
+          <div class="feature-title">Fully Insulated</div>
+          <div class="feature-desc">Temperature-controlled warehouse</div>
+        </div>
+      </div>
+
+      <!-- SUITABLE FOR -->
+      <div class="section-title">
+        <i>✅</i> Suitable For
+      </div>
+
+      <div class="tags-container">
+        <div class="tag">📦 Storage</div>
+        <div class="tag">🚛 Logistics</div>
+        <div class="tag">🏢 Commercial Use</div>
+        <div class="tag">🏭 Industrial</div>
+        <div class="tag">📋 Distribution</div>
+      </div>
+
       <!-- GALLERY -->
       <div class="section-title">
         <i>📸</i> Gallery
@@ -365,7 +502,7 @@
         <img src="PHOTO_9.JPEG" alt="Warehouse view 9" loading="lazy">
       </div>
 
-      <!-- REPLACED: Click to chat on WhatsApp (large, clean) -->
+      <!-- WhatsApp Chat Button -->
       <div style="text-align: center; margin: 36px 0 12px;">
         <a href="https://wa.me/971555646140?text=Hello%2C%20I%20am%20interested%20in%20the%20premium%20warehouse%20for%20lease%20(22%2C500%20sq.ft%20plot).%20Please%20share%20more%20details." 
            target="_blank" 
